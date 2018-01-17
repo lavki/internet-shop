@@ -1,0 +1,38 @@
+<div class="jumbotron text-center">
+    <h1>SMALL <span class="zf-green">INTERNET SHOP</span></h1>
+</div><!-- /.jumbotron text-center -->
+
+<div class="row">
+
+<?php foreach ($this->products as $product): ?>
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title" id="panel-title-<?=$product->getArticle();?>"><?= $product->getName() ?></h3>
+            </div><!-- /.panel-heading -->
+            <div class="panel-body">
+                <dl class="dl-horizontal">
+                    <dt>Article: </dt>
+                    <dd class="article"><?= $product->getArticle() ?></dd>
+                    
+                    <dt>Size: </dt>
+                    <dd>
+                        <?php foreach($sizes->getSize($product->getName()) as $size): ?>
+                        <input type="button" name="size" onclick="return SelectSize(this);" value="<?=$size->getSize();?>" rel="<?=$size->getArticle();?>">
+                        <?php endforeach; ?>
+                    </dd>
+
+                    <dt>Color: </dt>
+                    <dd><?= $product->getColor() ?></dd>
+
+                    <dt>Price: </dt>
+                    <dd><?= $product->getPrice() ?></dd>
+                </dl>
+
+                <p><a class="btn btn-success pull-right" href="#">Go somewhere...</a></p>
+            </div><!-- /.panel-body -->
+        </div><!-- /.panel panel-default -->
+    </div><!-- /.col-md-4 -->
+<?php endforeach; ?>
+
+</div><!-- /.row -->
