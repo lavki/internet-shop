@@ -2,7 +2,7 @@
 
 Описання Тестового Завдання можна переглянути [перейшовши за посиланням](https://docs.google.com/document/d/1FNE4F39m0XIgALX4YR_7GXRZ-L3vB23Kbi40DEs_kuw/edit).
 
-Дамп Бази Даних знаходиться в файлі: "DataBase-Internet-Shop.sql" в корневій директорії
+Дамп Бази Даних знаходиться в файлі: `DataBase-Internet-Shop.sql` в корневій директорії
 
 # ZendSkeletonApplication
 
