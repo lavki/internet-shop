@@ -1,6 +1,10 @@
 # Тестовое завдання для junior php developer
 
 [Посилання на тестове завдання](https://docs.google.com/document/d/1FNE4F39m0XIgALX4YR_7GXRZ-L3vB23Kbi40DEs_kuw/edit)
+
+# Дамп Бази Даних знаходиться в файлі:
+**Note:** "DataBase-Internet-Shop.sql"
+
 # ZendSkeletonApplication
 
 ## Introduction
