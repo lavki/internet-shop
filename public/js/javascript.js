@@ -1,12 +1,21 @@
-function SelectSize(Element)
+function SelectModification(Element)
 {
-	var size = Element.value;
-	var article = $(Element).parents('.dl-horizontal').children('.article').html();
-	var name = $('#panel-title-' + article).html();
+	var size = Element.value,
+		id   = $(Element).attr('data-id');
 
-	var changeArticle = $(Element).parents('.dl-horizontal').children('.article').css('color', 'red');
-
-	console.log('Size is: ' + size + ', name is: ' + name);
-
-    return false;
+	$.ajax({
+		url: 		'http://internet-shop/ajax',
+		type:       'POST',
+		dataType:   'json',
+		data: 		{'id': id, 'size': size},
+		async:      true,
+		success: function(data, status)
+		{
+			$(Element).parents('.dl-horizontal').children('.article').html(data.article);
+		},
+		error: function(xhr, textStatus, errorThrown)
+		{
+			alert('Ajax request failed.');
+		}
+	});
 }

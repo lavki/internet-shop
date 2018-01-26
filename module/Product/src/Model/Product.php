@@ -4,80 +4,72 @@ namespace Product\Model;
 
 class Product
 {
-    /**
-     * @var int
-     */
-    private $article;
+	private $id;
+	private $name;
+	private $size;
+	private $color;
+	private $price;
+	private $article;
 
-    /**
-     * @var string
-     */
-    private $name;
+	public function __construct( $id, $name, $size, $color, $price, $article = null )
+	{
+		$this->id 	   = $id;
+		$this->name    = $name;
+		$this->size    = $size;
+		$this->color   = $color;
+		$this->price   = $price;
+		$this->article = $article;
+	}
 
-    /**
-     * @var float
-     */
-    private $price;
+	public function getId()
+	{
+		return $this->id;
+	}
 
-    /**
-     * @var string
-     */
-    private $size;
+	public function getName()
+	{
+		return $this->name;
+	}
 
-    /**
-     * @var string
-     */
-    private $color;
+	public function getSize()
+	{
+		return $this->size;
+	}
 
-    /**
-     * @param string $name
-     * @param string $size
-     * @param int|null $article
-     */
-    public function __construct($name, $size, $article = null)
-    {
-        $this->name 	= $name;
-        $this->size 	= $size;
-        $this->article 	= $article;
-    }
+	public function getSizes()
+	{
+		return $this->convertToArray($this->size);
+	}
 
-    /**
-     * @return int|null
-     */
-    public function getArticle()
-    {
-        return $this->article;
-    }
+	public function getColor()
+	{
+		return $this->color;
+	}
 
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
+	public function getColors()
+	{
+		return $this->convertToArray($this->color);
+	}
 
-    /**
-     * @return float
-     */
-    public function getPrice()
-    {
-        return $this->price;
-    }
+	public function getPrice()
+	{
+		return $this->price;
+	}
 
-    /**
-     * @return string
-     */
-    public function getSize()
-    {
-        return $this->size;
-    }
+	public function getArticle()
+	{
+		return $this->article;
+	}
 
-    /**
-     * @return string
-     */
-    public function getColor()
-    {
-        return $this->color;
-    }
+	private function convertToArray( $data )
+	{
+		if( !is_string($data) )
+		{
+			(string) $data;
+		}
+
+		$sizes = explode(', ', $data);
+
+		return $sizes;
+	}
 }

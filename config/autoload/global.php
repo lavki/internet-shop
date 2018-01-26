@@ -14,7 +14,7 @@
 return [
     'db' => [
         'driver'   => 'Pdo',
-        'dsn'      => sprintf('mysql:host=localhost;dbname=junior-php-developer;charset=utf8'),
+        'dsn'      => sprintf('mysql:host=localhost;dbname=internet-shop;charset=utf8'),
         'user'     => 'root',
         'password' => 'password',
     ],

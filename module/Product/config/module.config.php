@@ -3,7 +3,6 @@
 namespace Product;
 
 use Zend\Router\Http\Literal;
-use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
 return [
@@ -26,6 +25,16 @@ return [
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
                         'action'     => 'index',
+                    ],
+                ],
+            ],
+            'ajax' => [
+                'type' => Literal::class,
+                'options' => [
+                    'route'    => '/ajax',
+                    'defaults' => [
+                        'controller' => Controller\IndexController::class,
+                        'action'     => 'ajax',
                     ],
                 ],
             ],
@@ -53,5 +62,6 @@ return [
         'template_path_stack' => [
             __DIR__ . '/../view',
         ],
+        'strategies' => ['ViewJsonStrategy'],
     ],
 ];

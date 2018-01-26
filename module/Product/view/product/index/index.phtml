@@ -4,32 +4,40 @@
 
 <div class="row">
 
-<?php foreach ($this->products as $product): ?>
+    <?php foreach ($this->products as $product): ?>
     <div class="col-md-4">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title" id="panel-title-<?=$product->getArticle();?>"><?= $product->getName() ?></h3>
+                <h3 class="panel-title" id="panel-title-<?=$product->getId()?>"><?=$product->getName()?></h3>
             </div><!-- /.panel-heading -->
             <div class="panel-body">
                 <dl class="dl-horizontal">
                     <dt>Article: </dt>
-                    <dd class="article"><?= $product->getArticle() ?></dd>
+                    <dd class="article"></dd>
                     
                     <dt>Size: </dt>
                     <dd>
-                        <?php foreach($sizes->getSize($product->getName()) as $size): ?>
-                        <input type="button" name="size" onclick="return SelectSize(this);" value="<?=$size->getSize();?>" rel="<?=$size->getArticle();?>">
-                        <?php endforeach; ?>
+                        <form action="#" method="post" id="modificationBySize">
+<?php foreach($product->getSizes() as $size): ?>
+                            <input class="btn btn-default btn-xs" type="button" name="size" value="<?= $size; ?>" data-id="<?=$product->getId()?>" onclick="SelectModification(this);">
+<?php endforeach; ?>
+                        </form>
                     </dd>
 
                     <dt>Color: </dt>
-                    <dd><?= $product->getColor() ?></dd>
+                    <dd>
+<?php foreach($product->getColors() as $color): ?>
+                            <label class="radio-inline btn btn-default btn-xs" style="background-color: <?=$color;?>;">
+                                <input type="radio" name="color" value="<?=$color;?>" data-id="<?=$product->getId()?>">
+                            </label>
+<?php endforeach; ?>
+                    </dd>
 
                     <dt>Price: </dt>
-                    <dd><?= $product->getPrice() ?></dd>
+                    <dd><?= $product->getPrice(); ?></dd>
                 </dl>
 
-                <p><a class="btn btn-success pull-right" href="#">Go somewhere...</a></p>
+                <p><a class="btn btn-primary pull-right" href="#">Go somewhere...</a></p>
             </div><!-- /.panel-body -->
         </div><!-- /.panel panel-default -->
     </div><!-- /.col-md-4 -->
